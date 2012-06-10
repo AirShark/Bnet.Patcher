@@ -98,8 +98,8 @@ namespace Bnet.Patcher
                         if (prevByte != 0x75)
                             throw new Exception(string.Format("File already patched or unknown battle.net.dll version. 0x{0:X2} != 0x75",prevByte));
                         prevByte = ReadByte(hWnd, challengeAddr);
-                        if (prevByte != 0x75)
-                            throw new Exception(string.Format("File already patched or unknown battle.net.dll version. 0x{0:X2} != 0x75", prevByte));
+                        if (prevByte != 0x74)
+                            throw new Exception(string.Format("File already patched or unknown battle.net.dll version. 0x{0:X2} != 0x74", prevByte));
                         WriteProcessMemory(hWnd, new IntPtr(serverAddr), JMP, 1, out BytesWritten);
                         if (BytesWritten.ToInt32() < 1)
                             throw new Exception("Failed to write to process.");
